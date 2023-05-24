@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+
+}
+.page {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  width: 400px;
+  height: 500px;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: center;
+}
+
+.row {
+  display: flex;
+  height: 70px;
+  gap: 10px;
+}
+
+button{
+  width: 80px;
+  height: 55px;
+}
+
+.screen {
+  width: 350px;
+  height: 70px;
+  background-color: white;
+  border: dimgrey solid 1px;
+}
