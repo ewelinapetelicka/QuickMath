@@ -1,4 +1,7 @@
+
 export function App() {
+
+
     return (
         <div className={'page'}>
             <div className={'container'}>
@@ -9,13 +12,13 @@ export function App() {
                     <button>1</button>
                     <button>2</button>
                     <button>3</button>
-                    <button>*</button>
+                    <button>×</button>
                 </div>
                 <div className={'row'}>
                     <button>4</button>
                     <button>5</button>
                     <button>6</button>
-                    <button>/</button>
+                    <button>÷</button>
                 </div>
                 <div className={'row'}>
                     <button>7</button>
@@ -29,6 +32,7 @@ export function App() {
                     <button>,</button>
                     <button>-</button>
                 </div>
+                <button>=</button>
             </div>
         </div>
     );
