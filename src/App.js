@@ -8,7 +8,7 @@ export function App() {
 
     function setOperation(sym) {
         setValue('0');
-        setResult(value);
+        setResult(calculate());
         setSymbol(sym);
     }
 
@@ -19,12 +19,12 @@ export function App() {
     }
 
     function changeValue(change) {
-        if(value[0]==='0'&& change==='0') {
+        if (value[0] === '0' && change === '0') {
             return;
         }
-        if(value[0]==='0' && change !== '0'){
+        if (value[0] === '0' && change !== '0') {
             setValue(change);
-        }else {
+        } else {
             setValue(value + change);
         }
     }
@@ -39,22 +39,29 @@ export function App() {
     }
 
     function equal() {
+        setValue(calculate());
+        setSymbol('');
+        setResult('');
+    }
+
+    function calculate() {
         const a = Number(result.replace(',', '.'));
         const b = Number(value.replace(',', '.'));
         if (symbol === operations.multi) {
-            setValue((a * b).toString().replace('.', ','));
+            return (a * b).toString().replace('.', ',');
         }
         if (symbol === operations.div) {
-            setValue((a / b).toString().replace('.', ','))
+            return (a / b).toString().replace('.', ',');
         }
         if (symbol === operations.add) {
-            setValue((a + b).toString().replace('.', ','))
+            return (a + b).toString().replace('.', ',');
         }
         if (symbol === operations.sub) {
-            setValue((a - b).toString().replace('.', ','))
+            return (a - b).toString().replace('.', ',');
+        } else {
+            return b.toString().replace('.', ',');
         }
-        setSymbol('');
-        setResult('');
+
     }
 
     return (
