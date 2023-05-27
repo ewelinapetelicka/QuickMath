@@ -1,11 +1,49 @@
 import {useState} from "react";
+import {operations} from "./operations";
 
 export function App() {
     const [value, setValue] = useState("");
     const [result, setResult] = useState("");
     const [symbol, setSymbol] = useState();
 
+    function setOperation(sym) {
+        setValue('');
+        setResult(value);
+        setSymbol(sym);
+    }
 
+    function screenC() {
+        setValue('');
+        setResult('');
+        setSymbol('');
+    }
+
+    function changeValue(change) {
+        setValue(value + change);
+    }
+
+    function comma() {
+        setValue(value + ",")
+    }
+
+    function equal() {
+        const a = Number(result.replace(',', '.'));
+        const b = Number(value.replace(',', '.'));
+        if (symbol === operations.multi) {
+            setValue((a * b).toString().replace('.', ','));
+        }
+        if (symbol === operations.div) {
+            setValue((a / b).toString().replace('.', ','))
+        }
+        if (symbol === operations.add) {
+            setValue((a + b).toString().replace('.', ','))
+        }
+        if (symbol === operations.sub) {
+            setValue((a - b).toString().replace('.', ','))
+        }
+        setSymbol('');
+        setResult('');
+    }
 
     return (
         <div className={'page'}>
@@ -16,67 +54,30 @@ export function App() {
                     {value}
                 </div>
                 <div className={'row'}>
-                    <button onClick={()=>setValue(value + "1")}>1</button>
-                    <button onClick={()=>setValue(value + "2")}>2</button>
-                    <button onClick={()=>setValue(value + "3")}>3</button>
-                    <button onClick={()=>{
-                        setValue('');
-                        setResult(value);
-                        setSymbol(' × ');
-                    }}>×</button>
+                    <button onClick={() => changeValue("1")}>1</button>
+                    <button onClick={() => changeValue("2")}>2</button>
+                    <button onClick={() => changeValue("3")}>3</button>
+                    <button onClick={() => setOperation(operations.multi)}>×</button>
                 </div>
                 <div className={'row'}>
-                    <button onClick={()=>setValue(value + "4")}>4</button>
-                    <button onClick={()=>setValue(value + "5")}>5</button>
-                    <button onClick={()=>setValue(value + "6")}>6</button>
-                    <button onClick={()=>{
-                        setValue('');
-                        setResult(value);
-                        setSymbol(' ÷ ');
-                    }}>÷</button>
+                    <button onClick={() => changeValue("4")}>4</button>
+                    <button onClick={() => changeValue("5")}>5</button>
+                    <button onClick={() => changeValue("6")}>6</button>
+                    <button onClick={() => setOperation(operations.div)}>÷</button>
                 </div>
                 <div className={'row'}>
-                    <button onClick={()=>setValue(value + "7")}>7</button>
-                    <button onClick={()=>setValue(value + "8")}>8</button>
-                    <button onClick={()=>setValue(value + "9")}>9</button>
-                    <button onClick={()=>{
-                        setValue('');
-                        setResult(value);
-                        setSymbol(' + ');
-                    }}>+</button>
+                    <button onClick={() => changeValue("7")}>7</button>
+                    <button onClick={() => changeValue("8")}>8</button>
+                    <button onClick={() => changeValue("9")}>9</button>
+                    <button onClick={() => setOperation(operations.add)}>+</button>
                 </div>
                 <div className={'row'}>
-                    <button onClick={()=>{
-                        setValue('');
-                        setResult('');
-                        setSymbol('');
-                    }}>C</button>
-                    <button onClick={()=>setValue(value + "0")}>0</button>
-                    <button onClick={()=>setValue(value + ",")}>,</button>
-                    <button onClick={()=>{
-                        setValue('');
-                        setResult(value);
-                        setSymbol(' - ');
-                    }}>-</button>
+                    <button onClick={() => screenC()}>C</button>
+                    <button onClick={() => changeValue("0")}>0</button>
+                    <button onClick={() => comma()}>,</button>
+                    <button onClick={() => setOperation(operations.sub)}>-</button>
                 </div>
-                <button onClick={()=> {
-                    const a = Number(result.replace(',','.'));
-                    const b = Number(value.replace(',','.'));
-                    if (symbol === ' × ') {
-                        setValue((a * b).toString().replace('.',','));
-                    }
-                    if (symbol === ' ÷ ' ) {
-                        setValue((a / b).toString().replace('.',','))
-                    }
-                    if (symbol === ' + ' ) {
-                        setValue((a + b).toString().replace('.',','))
-                    }
-                    if (symbol === ' - ' ) {
-                        setValue((a - b).toString().replace('.',','))
-                    }
-                    setSymbol('');
-                    setResult('');
-                }}>=</button>
+                <button onClick={() => equal()}>=</button>
             </div>
         </div>
     );
