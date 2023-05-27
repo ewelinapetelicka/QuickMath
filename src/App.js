@@ -2,24 +2,31 @@ import {useState} from "react";
 import {operations} from "./operations";
 
 export function App() {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("0");
     const [result, setResult] = useState("");
     const [symbol, setSymbol] = useState();
 
     function setOperation(sym) {
-        setValue('');
+        setValue('0');
         setResult(value);
         setSymbol(sym);
     }
 
     function screenC() {
-        setValue('');
+        setValue('0');
         setResult('');
         setSymbol('');
     }
 
     function changeValue(change) {
-        setValue(value + change);
+        if(value[0]==='0'&& change==='0') {
+            return;
+        }
+        if(value[0]==='0' && change !== '0'){
+            setValue(change);
+        }else {
+            setValue(value + change);
+        }
     }
 
     function comma() {
