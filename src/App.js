@@ -24,7 +24,10 @@ export function App() {
 
     function comma() {
         if (!value.includes(',')) {
-            setValue(value + ",")
+            setValue(value + ",");
+        }
+        if (!value) {
+            setValue('0,');
         }
     }
 
