@@ -23,7 +23,9 @@ export function App() {
     }
 
     function comma() {
-        setValue(value + ",")
+        if (!value.includes(',')) {
+            setValue(value + ",")
+        }
     }
 
     function equal() {
