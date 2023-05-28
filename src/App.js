@@ -47,7 +47,7 @@ export function App() {
     function undo() {
         if (value.length === 1) {
             setValue('0');
-        }else {
+        } else {
             setValue(value.slice(0, -1));
         }
     }
@@ -55,7 +55,7 @@ export function App() {
     function negativePositive() {
         if (value[0] === '-') {
             setValue(value.slice(1));
-        }else {
+        } else {
             setValue('-' + value);
         }
     }
@@ -74,9 +74,12 @@ export function App() {
         }
         if (symbol === operations.sub) {
             return (a - b).toString().replace('.', ',');
-        } else {
-            return b.toString().replace('.', ',');
         }
+        if (symbol === operations.perc) {
+            return ((100 * a) / b).toString().replace('.', ',');
+        }
+
+        return b.toString().replace('.', ',');
     }
 
     return (
@@ -110,11 +113,11 @@ export function App() {
                     <button onClick={() => changeValue("0")}>0</button>
                     <button onClick={() => comma()}>,</button>
                     <button onClick={() => setOperation(operations.sub)}>-</button>
-                </div >
+                </div>
                 <div className={'row'}>
-                    <button onClick={()=>negativePositive()}>+/-</button>
-                    <button>%</button>
-                    <button onClick={()=>undo()}>←</button>
+                    <button onClick={() => negativePositive()}>+/-</button>
+                    <button onClick={() => setOperation(operations.perc)}>%</button>
+                    <button onClick={() => undo()}>←</button>
                     <button onClick={() => equal()}>=</button>
 
                 </div>

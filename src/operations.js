@@ -2,5 +2,6 @@ export const operations = {
     add: ' + ',
     sub: ' - ',
     multi: ' × ',
-    div: ' ÷ '
+    div: ' ÷ ',
+    perc: ' % '
 }
