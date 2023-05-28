@@ -19,13 +19,17 @@ export function App() {
     }
 
     function changeValue(change) {
-        if (value[0] === '0' && change === '0') { // TODO: fix 0,0 state
-            return;
-        }
-        if (value[0] === '0' && change !== '0') { // TODO: fix 0,any state
-            setValue(change);
-        } else {
-            setValue(value + change);
+        const first = value[0] === '-'? value[1] : value[0];
+        if (value.includes(',')) {
+            setValue(value + change)
+        }else {
+            if (first === '0' && change === '0') {
+                setValue(value + ',');
+            } else if (first === '0' && change !== '0') {
+                setValue(change);
+            } else {
+                setValue(value + change);
+            }
         }
     }
 
