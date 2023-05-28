@@ -1,5 +1,16 @@
 import {useState} from "react";
 import {operations} from "./operations";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {
+    faCoffee,
+    faDeleteLeft,
+    faDivide,
+    faEquals,
+    faMinus, faPercent,
+    faPlus,
+    faPlusMinus,
+    faXmark
+} from "@fortawesome/free-solid-svg-icons";
 
 export function App() {
     const [value, setValue] = useState("0");
@@ -98,32 +109,47 @@ export function App() {
                     <button onClick={() => changeValue("1")}>1</button>
                     <button onClick={() => changeValue("2")}>2</button>
                     <button onClick={() => changeValue("3")}>3</button>
-                    <button onClick={() => setOperation(operations.multi)}>×</button>
+                    <button onClick={() => setOperation(operations.multi)}>
+                        <FontAwesomeIcon icon={faXmark} />
+                    </button>
                 </div>
                 <div className={'row'}>
                     <button onClick={() => changeValue("4")}>4</button>
                     <button onClick={() => changeValue("5")}>5</button>
                     <button onClick={() => changeValue("6")}>6</button>
-                    <button onClick={() => setOperation(operations.div)}>÷</button>
+                    <button onClick={() => setOperation(operations.div)}>
+                        <FontAwesomeIcon icon={faDivide} />
+                    </button>
                 </div>
                 <div className={'row'}>
                     <button onClick={() => changeValue("7")}>7</button>
                     <button onClick={() => changeValue("8")}>8</button>
                     <button onClick={() => changeValue("9")}>9</button>
-                    <button onClick={() => setOperation(operations.add)}>+</button>
+                    <button onClick={() => setOperation(operations.add)}>
+                        <FontAwesomeIcon icon={faPlus} />
+                    </button>
                 </div>
                 <div className={'row'}>
                     <button onClick={() => screenC()}>C</button>
                     <button onClick={() => changeValue("0")}>0</button>
                     <button onClick={() => comma()}>,</button>
-                    <button onClick={() => setOperation(operations.sub)}>-</button>
+                    <button onClick={() => setOperation(operations.sub)}>
+                        <FontAwesomeIcon icon={faMinus} />
+                    </button>
                 </div>
                 <div className={'row'}>
-                    <button onClick={() => negativePositive()}>+/-</button>
-                    <button onClick={() => setOperation(operations.perc)}>%</button>
-                    <button onClick={() => undo()}>←</button>
-                    <button onClick={() => equal()}>=</button>
-
+                    <button onClick={() => negativePositive()}>
+                        <FontAwesomeIcon icon={faPlusMinus} />
+                    </button>
+                    <button onClick={() => setOperation(operations.perc)}>
+                        <FontAwesomeIcon icon={faPercent} />
+                    </button>
+                    <button onClick={() => undo()} >
+                        <FontAwesomeIcon icon={faDeleteLeft} />
+                    </button>
+                    <button onClick={() => equal()}>
+                        <FontAwesomeIcon icon={faEquals} />
+                    </button>
                 </div>
             </div>
         </div>
