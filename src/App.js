@@ -44,6 +44,14 @@ export function App() {
         setResult('');
     }
 
+    function undo() {
+        if (value.length === 1) {
+            setValue('0');
+        }else {
+            setValue(value.slice(0, -1));
+        }
+    }
+
     function calculate() {
         const a = Number(result.replace(',', '.'));
         const b = Number(value.replace(',', '.'));
@@ -61,7 +69,6 @@ export function App() {
         } else {
             return b.toString().replace('.', ',');
         }
-
     }
 
     return (
@@ -95,8 +102,14 @@ export function App() {
                     <button onClick={() => changeValue("0")}>0</button>
                     <button onClick={() => comma()}>,</button>
                     <button onClick={() => setOperation(operations.sub)}>-</button>
+                </div >
+                <div className={'row'}>
+                    <button>+/-</button>
+                    <button>%</button>
+                    <button onClick={()=>undo()}>←</button>
+                    <button onClick={() => equal()}>=</button>
+
                 </div>
-                <button onClick={() => equal()}>=</button>
             </div>
         </div>
     );
