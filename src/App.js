@@ -19,10 +19,10 @@ export function App() {
     }
 
     function changeValue(change) {
-        if (value[0] === '0' && change === '0') {
+        if (value[0] === '0' && change === '0') { // TODO: fix 0,0 state
             return;
         }
-        if (value[0] === '0' && change !== '0') {
+        if (value[0] === '0' && change !== '0') { // TODO: fix 0,any state
             setValue(change);
         } else {
             setValue(value + change);
@@ -49,6 +49,14 @@ export function App() {
             setValue('0');
         }else {
             setValue(value.slice(0, -1));
+        }
+    }
+
+    function negativePositive() {
+        if (value[0] === '-') {
+            setValue(value.slice(1));
+        }else {
+            setValue('-' + value);
         }
     }
 
@@ -104,7 +112,7 @@ export function App() {
                     <button onClick={() => setOperation(operations.sub)}>-</button>
                 </div >
                 <div className={'row'}>
-                    <button>+/-</button>
+                    <button onClick={()=>negativePositive()}>+/-</button>
                     <button>%</button>
                     <button onClick={()=>undo()}>←</button>
                     <button onClick={() => equal()}>=</button>
