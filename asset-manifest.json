@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/QuickMath/static/css/main.ed15e564.css",
+    "main.js": "/QuickMath/static/js/main.2a8db29e.js",
+    "index.html": "/QuickMath/index.html",
+    "main.ed15e564.css.map": "/QuickMath/static/css/main.ed15e564.css.map",
+    "main.2a8db29e.js.map": "/QuickMath/static/js/main.2a8db29e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed15e564.css",
+    "static/js/main.2a8db29e.js"
+  ]
+}
