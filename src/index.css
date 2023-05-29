@@ -1,53 +1,81 @@
-body {
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+
+body {
+    margin: 0;
+    font-family: 'Varela Round', sans-serif !important;
+    background: rgb(255,201,0);
+    background: radial-gradient(circle, rgba(255,201,0,1) 25%, rgba(166,0,255,1) 100%);
 }
+
+* {
+    box-sizing: border-box;
+}
+
 .page {
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
 }
 
 .container {
-  width: 400px;
-  height: 500px;
-  background-color: cadetblue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  position: center;
+    width: 400px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    gap: 30px;
+    box-shadow: inset 0px 0px 63px -5px rgba(255, 255, 255, 0.5);
+
+}
+
+.keyboard {
+    gap: 6px;
+
 }
 
 .row {
-  display: flex;
-  height: 70px;
-  gap: 10px;
+    display: flex;
+    height: 70px;
+    gap: 6px;
 }
 
-button{
-  width: 80px;
-  height: 55px;
-  font-size: 36px;
-  font-weight: bold;
-  font-family: ;
+button {
+    width: 80px;
+    height: 55px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Varela Round', sans-serif !important;
+    border-radius: 20px;
+    margin: 0;
+    border: 0;
+    background: rgba(255, 255, 255, 0.3);
+    color: #512d72;
+    box-shadow: inset 0px 0px 30px -5px rgba(255, 255, 255, 0.9);
+}
+button:hover {
+    background: rgba(255, 255, 255, 0.6);
 
 }
 
 .screen {
-  width: 350px;
-  height: 70px;
-  background-color: white;
-  border: dimgrey solid 1px;
-  font-size: 36px;
-}
-
-.result {
-  color: green;
-}
-
-.value {
-  color: blue;
+    width: 338px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.4);
+    font-size: 60px;
+    font-weight: bold;
+    border-radius: 30px;
+    display: flex;
+    border: 0;
+    padding: 5px;
+    justify-content: right;
+    align-items: center;
+    box-shadow: inset 0px 0px 30px -5px rgba(255, 255, 255, 0.9);
+    color: #512d72;
 }

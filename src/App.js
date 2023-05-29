@@ -2,7 +2,6 @@ import {useState} from "react";
 import {operations} from "./operations";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faCoffee,
     faDeleteLeft,
     faDivide,
     faEquals,
@@ -30,10 +29,10 @@ export function App() {
     }
 
     function changeValue(change) {
-        const first = value[0] === '-'? value[1] : value[0];
+        const first = value[0] === '-' ? value[1] : value[0];
         if (value.includes(',')) {
             setValue(value + change)
-        }else {
+        } else {
             if (first === '0' && change === '0') {
                 setValue(value + ',');
             } else if (first === '0' && change !== '0') {
@@ -105,51 +104,53 @@ export function App() {
                     {symbol}
                     {value}
                 </div>
-                <div className={'row'}>
-                    <button onClick={() => changeValue("1")}>1</button>
-                    <button onClick={() => changeValue("2")}>2</button>
-                    <button onClick={() => changeValue("3")}>3</button>
-                    <button onClick={() => setOperation(operations.multi)}>
-                        <FontAwesomeIcon icon={faXmark} />
-                    </button>
-                </div>
-                <div className={'row'}>
-                    <button onClick={() => changeValue("4")}>4</button>
-                    <button onClick={() => changeValue("5")}>5</button>
-                    <button onClick={() => changeValue("6")}>6</button>
-                    <button onClick={() => setOperation(operations.div)}>
-                        <FontAwesomeIcon icon={faDivide} />
-                    </button>
-                </div>
-                <div className={'row'}>
-                    <button onClick={() => changeValue("7")}>7</button>
-                    <button onClick={() => changeValue("8")}>8</button>
-                    <button onClick={() => changeValue("9")}>9</button>
-                    <button onClick={() => setOperation(operations.add)}>
-                        <FontAwesomeIcon icon={faPlus} />
-                    </button>
-                </div>
-                <div className={'row'}>
-                    <button onClick={() => screenC()}>C</button>
-                    <button onClick={() => changeValue("0")}>0</button>
-                    <button onClick={() => comma()}>,</button>
-                    <button onClick={() => setOperation(operations.sub)}>
-                        <FontAwesomeIcon icon={faMinus} />
-                    </button>
-                </div>
-                <div className={'row'}>
-                    <button onClick={() => negativePositive()}>
-                        <FontAwesomeIcon icon={faPlusMinus} />
-                    </button>
-                    <button onClick={() => setOperation(operations.perc)}>
-                        <FontAwesomeIcon icon={faPercent} />
-                    </button>
-                    <button onClick={() => undo()} >
-                        <FontAwesomeIcon icon={faDeleteLeft} />
-                    </button>
-                    <button onClick={() => equal()}>
-                        <FontAwesomeIcon icon={faEquals} />
-                    </button>
+                <div className={'keyboard'}>
+                    <div className={'row'}>
+                        <button onClick={() => changeValue("1")}>1</button>
+                        <button onClick={() => changeValue("2")}>2</button>
+                        <button onClick={() => changeValue("3")}>3</button>
+                        <button onClick={() => setOperation(operations.multi)}>
+                            <FontAwesomeIcon icon={faXmark}/>
+                        </button>
+                    </div>
+                    <div className={'row'}>
+                        <button onClick={() => changeValue("4")}>4</button>
+                        <button onClick={() => changeValue("5")}>5</button>
+                        <button onClick={() => changeValue("6")}>6</button>
+                        <button onClick={() => setOperation(operations.div)}>
+                            <FontAwesomeIcon icon={faDivide}/>
+                        </button>
+                    </div>
+                    <div className={'row'}>
+                        <button onClick={() => changeValue("7")}>7</button>
+                        <button onClick={() => changeValue("8")}>8</button>
+                        <button onClick={() => changeValue("9")}>9</button>
+                        <button onClick={() => setOperation(operations.add)}>
+                            <FontAwesomeIcon icon={faPlus}/>
+                        </button>
+                    </div>
+                    <div className={'row'}>
+                        <button onClick={() => screenC()}>C</button>
+                        <button onClick={() => changeValue("0")}>0</button>
+                        <button onClick={() => comma()}>,</button>
+                        <button onClick={() => setOperation(operations.sub)}>
+                            <FontAwesomeIcon icon={faMinus}/>
+                        </button>
+                    </div>
+                    <div className={'row'}>
+                        <button onClick={() => negativePositive()}>
+                            <FontAwesomeIcon icon={faPlusMinus}/>
+                        </button>
+                        <button onClick={() => setOperation(operations.perc)}>
+                            <FontAwesomeIcon icon={faPercent}/>
+                        </button>
+                        <button onClick={() => undo()}>
+                            <FontAwesomeIcon icon={faDeleteLeft}/>
+                        </button>
+                        <button onClick={() => equal()}>
+                            <FontAwesomeIcon icon={faEquals}/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
